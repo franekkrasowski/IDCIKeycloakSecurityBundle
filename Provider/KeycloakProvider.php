@@ -148,7 +148,7 @@ class KeycloakProvider extends AbstractProvider
         return ' ';
     }
 
-    protected function checkResponse(ResponseInterface $response, $data)
+    protected function checkResponse(ResponseInterface $response, $data): void
     {
         if (!empty($data['error'])) {
             $error = sprintf('%s: %s', $data['error'], $data['error_description']);
@@ -162,7 +162,7 @@ class KeycloakProvider extends AbstractProvider
         return new KeycloakResourceOwner($response, $token);
     }
 
-    protected function getAllowedClientOptions(array $options)
+    protected function getAllowedClientOptions(array $options): array
     {
         return ['timeout', 'proxy', 'verify'];
     }
