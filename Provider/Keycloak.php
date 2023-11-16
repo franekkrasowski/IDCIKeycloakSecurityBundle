@@ -145,9 +145,14 @@ class Keycloak extends AbstractProvider
         return $this->clientSecret;
     }
 
+    protected function getScopeSeparator()
+    {
+        return ' ';
+    }
+
     protected function getDefaultScopes(): array
     {
-        return ['name', 'email'];
+        return ['name', 'email', 'openid'];
     }
 
     protected function checkResponse(ResponseInterface $response, $data)
